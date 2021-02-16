@@ -9,4 +9,4 @@ RUN apk add --no-cache bash tini curl iftop mtr curl net-tools iperf3 htop tmux 
 EXPOSE 7681
 
 ENTRYPOINT ["/sbin/tini", "--"]
-CMD ["ttyd", "/bin/login"]
+CMD ["ttyd", "-P", "3600", "bash"]
