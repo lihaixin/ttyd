@@ -7,7 +7,7 @@ COPY --from=0 /ttyd/build/ttyd /usr/bin/ttyd
 RUN apk add --no-cache bash tini curl iftop mtr curl net-tools iperf3 htop tmux nano openssh-client openssh tzdata openrc && \ 
     mkdir -p /run/openrc && \
     touch /run/openrc/softlevel && \
-    rc-update add sshd default
+    rc-update add sshd default && \
     cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config && \
     echo "root:admin" | chpasswd
